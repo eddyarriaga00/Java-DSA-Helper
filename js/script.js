@@ -1,7 +1,3 @@
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const searchBox = document.getElementById("searchBox");
     const modules = document.querySelectorAll(".module-card");
@@ -525,6 +521,10 @@ let currentFilter = 'all';
 let completedModules = new Set();
 
 function renderModules() {
+
+
+
+
     const grid = document.getElementById('modulesGrid');
     grid.innerHTML = '';
 
@@ -538,48 +538,62 @@ function renderModules() {
 
         return matchesFilter && matchesSearch;
     });
-
     filteredModules.forEach(module => {
         const moduleCard = document.createElement('div');
         moduleCard.className = 'module-card';
-        moduleCard.onclick = () => openModal(module);
+
+        // Remove the old onClick for full modal view
+        // We'll keep everything visible on the homepage instead
 
         const isCompleted = completedModules.has(module.id);
 
         moduleCard.innerHTML = `
-                    <div class="module-header">
-                        <span class="module-icon">${module.icon}</span>
-                        <div class="module-title">${module.title} ${isCompleted ? '✅' : ''}</div>
-                    </div>
-                    <div class="difficulty-badge difficulty-${module.difficulty}">
-                        ${module.difficulty.charAt(0).toUpperCase() + module.difficulty.slice(1)}
-                    </div>
-                    <div class="module-description">${module.description}</div>
-                    <div class="subsections">
-                        ${module.subsections.map(sub => `
-                            <div class="subsection">
-                                <div class="subsection-title">${sub.title}</div>
-                                <div class="subsection-description">${sub.description}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    <div class="keywords">
-                        ${module.keywords.map(keyword => `
-                            <span class="keyword-tag" onmouseover="showDefinition(event, '${keyword}')" onmouseout="hideDefinition()">${keyword}</span>
-                        `).join('')}
-                    </div>
-                    <div class="resources">
-                        <strong>Learning Resources:</strong>
-                        ${module.resources.map(resource => {
+        <div class="module-header">
+            <span class="module-icon">${module.icon}</span>
+            <div class="module-title">${module.title} ${isCompleted ? '✅' : ''}</div>
+        </div>
+        <div class="difficulty-badge difficulty-${module.difficulty}">
+            ${module.difficulty.charAt(0).toUpperCase() + module.difficulty.slice(1)}
+        </div>
+        <div class="module-description">${module.description}</div>
+        <div class="subsections">
+            ${module.subsections.map(sub => `
+                <div class="subsection">
+                    <div class="subsection-title">${sub.title}</div>
+                    <div class="subsection-description">${sub.description}</div>
+                </div>
+            `).join('')}
+        </div>
+        <div class="keywords">
+            ${module.keywords.map(keyword => `
+                <span class="keyword-tag" onmouseover="showDefinition(event, '${keyword}')" onmouseout="hideDefinition()">${keyword}</span>
+            `).join('')}
+        </div>
+        <div class="resources">
+            <strong>Learning Resources:</strong>
+            ${module.resources.map(resource => {
             const [title, url] = resource.split(': ');
             return `<a href="${url}" target="_blank" class="resource-link">${title}</a>`;
         }).join('')}
-                    </div>
-                `;
+        </div>
+
+        <!-- ✅ Code Toggle Section -->
+        <div class="toggle-code-btn">Show Code</div>
+<div class="code-example-wrapper" style="display: none;">
+    <div class="fullscreen-toggle">🔳 Fullscreen</div>
+    <pre class="code-example">${getCodeExample(module.id)}</pre>
+</div>
+
+    `;
 
         grid.appendChild(moduleCard);
     });
-} function openModal(module) {
+}
+
+
+
+
+function openModal(module) {
     const modal = document.getElementById('moduleModal');
     const modalContent = document.getElementById('modalContent');
 
@@ -613,11 +627,19 @@ function renderModules() {
         
         <h3>📖 Learning Resources</h3>
         <div class="resources">
-            ${module.resources.map(resource => {
+    <strong>Learning Resources:</strong>
+    ${module.resources.map(resource => {
         const [title, url] = resource.split(': ');
         return `<a href="${url}" target="_blank" class="resource-link">${title}</a>`;
     }).join('')}
-        </div>
+</div>
+
+<!-- ✅ NEW: Code Toggle Button & Code -->
+<button class="toggle-code-btn">Show Code</button>
+<div class="code-example" style="display: none;">
+    ${getCodeExample(module.id)}
+</div>
+
         
         <h3>💻 Code Example</h3>
         <div class="code-example">
@@ -1527,6 +1549,47 @@ window.addEventListener('resize', function () {
         renderModules();
     }, 250);
 });
+
+
+// Code toggle button logic
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("toggle-code-btn")) {
+        const codeBlock = e.target.nextElementSibling;
+        const isHidden = codeBlock.style.display === "none";
+        codeBlock.style.display = isHidden ? "block" : "none";
+        e.target.textContent = isHidden ? "Hide Code" : "Show Code";
+    }
+});
+
+
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("fullscreen-toggle")) {
+        const wrapper = e.target.closest(".code-example-wrapper");
+        if (!wrapper) return;
+
+        wrapper.classList.add("fullscreen-code");
+
+        const exitBtn = document.createElement("div");
+        exitBtn.className = "exit-fullscreen";
+        exitBtn.textContent = "⏎ Exit Fullscreen";
+        wrapper.appendChild(exitBtn);
+
+        document.body.classList.add("fullscreen-active");
+        document.body.style.overflow = "hidden";
+    }
+
+    if (e.target.classList.contains("exit-fullscreen")) {
+        const wrapper = e.target.closest(".code-example-wrapper");
+        if (!wrapper) return;
+
+        wrapper.classList.remove("fullscreen-code");
+        e.target.remove();
+
+        document.body.classList.remove("fullscreen-active");
+        document.body.style.overflow = "";
+    }
+});
+
 
 // Initialize with mobile-aware setup
 document.addEventListener('DOMContentLoaded', function () {

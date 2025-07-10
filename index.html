@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java DSA - CSC230 Interactive Learning Platform</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Java DSA - CSC230 Interactive Learning Platform EAB</title>
+    <link rel="stylesheet" href="/css/styles.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
-
 <body>
     <div class="container">
         <header>
@@ -29,13 +27,15 @@
 
         <div class="filters">
             <button class="filter-btn active" data-filter="all">All Modules</button>
-            <button class="filter-btn" data-filter="beginner">Beginner</button>
-            <button class="filter-btn" data-filter="intermediate">Intermediate</button>
-            <button class="filter-btn" data-filter="advanced">Advanced</button>
+            <button class="filter-btn" data-filter="beginner">Beginner Level</button>
+            <button class="filter-btn" data-filter="intermediate">Intermediate Level</button>
+            <button class="filter-btn" data-filter="advanced">Advanced Level</button>
         </div>
 
         <div class="modules-grid" id="modulesGrid">
         </div>
+
+        
     </div>
 
     <div class="modal" id="moduleModal">
@@ -50,7 +50,6 @@
 
 
 
-    <!-- ✅ Dark Mode Toggle Button (should be inside <body>) -->
     <button id="darkModeToggle"
         style="position: fixed; top: 20px; right: 20px; padding: 8px 14px; background: #333; color: #fff; border: none; border-radius: 8px; cursor: pointer; z-index: 1000;">
         🌙 Dark Mode
@@ -58,29 +57,27 @@
 
 
 
-    <!-- ⚙️ Settings Toggle Button -->
     <button id="settingsToggle"
         style="position: fixed; top: 70px; right: 20px; padding: 8px 14px; background: #333; color: #fff; border: none; border-radius: 8px; cursor: pointer; z-index: 1000;">
         ⚙️ Settings
     </button>
 
-    <!-- ⚙️ Settings Modal Panel -->
     <div id="themeCustomizer"
         style="display: none; position: fixed; top: 120px; right: 20px; width: 260px; background: #2a2a2a; color: #fff; padding: 16px; border-radius: 12px; z-index: 1000; font-size: 0.85em; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
 
         <h3 style="margin-bottom: 10px; font-size: 1em; border-bottom: 1px solid #444; padding-bottom: 6px;">🎨 Theme
-            Customization</h3>
+            Customization (more coming soon)</h3>
 
-        <label for="lightBG">Light Background:</label>
+        <label for="lightBG">Background Color For Light Mode:</label>
         <input type="color" id="lightBG" value="#ffffff" style="width: 100%; margin-bottom: 12px;">
 
-        <label for="lightCard">Light Cards:</label>
+        <label for="lightCard">Module Card Color For Light Mode:</label>
         <input type="color" id="lightCard" value="#f7fafc" style="width: 100%; margin-bottom: 12px;">
 
-        <label for="darkBG">Dark Background:</label>
+        <label for="darkBG">Background Color For Dark Mode:</label>
         <input type="color" id="darkBG" value="#121212" style="width: 100%; margin-bottom: 12px;">
 
-        <label for="darkCard">Dark Cards:</label>
+        <label for="darkCard">Module Card Color For Dark Mode:</label>
         <input type="color" id="darkCard" value="#1e1e1e" style="width: 100%; margin-bottom: 16px;">
 
         <button onclick="applyThemeColors()"
@@ -88,7 +85,9 @@
             ✅ Apply Theme
         </button>
     </div>
-    <script src="script.js"></script>
+
+
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
