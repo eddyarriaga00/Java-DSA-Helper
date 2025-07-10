@@ -5,12 +5,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java DSA - CSC230 Interactive Learning Platform</title>
+
     <style>
+        :root {
+            --light-bg: #ffffff;
+            --light-card: #f7fafc;
+            --light-text: #333;
+
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --dark-text: #f0f0f0;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--light-text);
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        body .module-card {
+            background-color: var(--light-card);
+        }
+
+        body.dark-mode .module-card {
+            background-color: var(--dark-card);
+        }
+
+
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 🌙 Improved Dark Mode (ChatGPT style) */
+
+        body.dark-mode {
+            background-color: #1c1c1e;
+            color: #f5f5f5;
+        }
+
+        body.dark-mode .module-card {
+            background: #2a2a2c;
+            border: 1px solid #444;
+            color: #fff;
+        }
+
+        body.dark-mode .module-title,
+        body.dark-mode .module-description,
+        body.dark-mode .difficulty-badge,
+        body.dark-mode .subsection-description,
+        body.dark-mode .subsection-title {
+            color: #f0f0f0;
+        }
+
+        body.dark-mode .subsection {
+            background-color: #333;
+            border-left: 4px solid #764ba2;
+        }
+
+        body.dark-mode .keyword-tag {
+            background: #383838;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .resource-link {
+            background: #292929;
+            color: #80c0ff;
+        }
+
+        body.dark-mode .filters button,
+        body.dark-mode .search-box {
+            background: #2b2b2b;
+            color: #f0f0f0;
+            border: 1px solid #555;
+        }
+
+        body.dark-mode .filters button:hover {
+            background: #444;
+        }
+
+        body.dark-mode .progress-fill {
+            background: linear-gradient(90deg, #00e0ff, #00ff88);
+        }
+
+        /* 🌙 Dark Mode - Top Header Area Styling (ChatGPT-style banner) */
+        body.dark-mode header {
+            background: #2a2a2c;
+            color: #ffffff;
+            border: 1px solid #444;
+        }
+
+        body.dark-mode h1 {
+            color: #ffffff;
+            text-shadow: none;
+        }
+
+        body.dark-mode .subtitle {
+            color: #cccccc;
+        }
+
+        body.dark-mode .progress-bar {
+            background: #3a3a3a;
+        }
+
+        body.dark-mode .progress-fill {
+            background: linear-gradient(90deg, #00e0ff, #00ff88);
+        }
+
+
+
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -664,6 +787,7 @@
         }
     </style>
 </head>
+
 
 <body>
     <div class="container">
@@ -2198,7 +2322,98 @@ public class DynamicProgramming {
         // Initialize
         renderModules();
         updateProgress();
+
+
+
     </script>
+
+    <!-- ✅ Dark Mode Toggle Button (should be inside <body>) -->
+    <button id="darkModeToggle"
+        style="position: fixed; top: 20px; right: 20px; padding: 8px 14px; background: #333; color: #fff; border: none; border-radius: 8px; cursor: pointer; z-index: 1000;">
+        🌙 Dark Mode
+    </button>
+
+    <!-- ✅ Dark Mode Toggle Script -->
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+
+        darkModeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            const isDark = document.body.classList.contains("dark-mode");
+            darkModeToggle.innerText = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+        });
+    </script>
+
+<!-- ⚙️ Settings Toggle Button -->
+<button id="settingsToggle"
+    style="position: fixed; top: 70px; right: 20px; padding: 8px 14px; background: #333; color: #fff; border: none; border-radius: 8px; cursor: pointer; z-index: 1000;">
+    ⚙️ Settings
+</button>
+
+<!-- ⚙️ Settings Modal Panel -->
+<div id="themeCustomizer"
+    style="display: none; position: fixed; top: 120px; right: 20px; width: 260px; background: #2a2a2a; color: #fff; padding: 16px; border-radius: 12px; z-index: 1000; font-size: 0.85em; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+
+    <h3 style="margin-bottom: 10px; font-size: 1em; border-bottom: 1px solid #444; padding-bottom: 6px;">🎨 Theme Customization</h3>
+
+    <label for="lightBG">Light Background:</label>
+    <input type="color" id="lightBG" value="#ffffff" style="width: 100%; margin-bottom: 12px;">
+
+    <label for="lightCard">Light Cards:</label>
+    <input type="color" id="lightCard" value="#f7fafc" style="width: 100%; margin-bottom: 12px;">
+
+    <label for="darkBG">Dark Background:</label>
+    <input type="color" id="darkBG" value="#121212" style="width: 100%; margin-bottom: 12px;">
+
+    <label for="darkCard">Dark Cards:</label>
+    <input type="color" id="darkCard" value="#1e1e1e" style="width: 100%; margin-bottom: 16px;">
+
+    <button onclick="applyThemeColors()"
+        style="width: 100%; padding: 6px; background: #444; color: #fff; border: none; border-radius: 6px; cursor: pointer;">
+        ✅ Apply Theme
+    </button>
+</div>
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchBox = document.getElementById("searchBox");
+            const modules = document.querySelectorAll(".module-card");
+
+            searchBox.addEventListener("input", function () {
+                const query = this.value.toLowerCase();
+
+                modules.forEach((module) => {
+                    const title = module.querySelector(".module-title").textContent.toLowerCase();
+                    const description = module.querySelector(".module-description").textContent.toLowerCase();
+
+                    const matches = title.includes(query) || description.includes(query);
+                    module.style.display = matches ? "block" : "none";
+                });
+            });
+        });
+    </script>
+
+
+<script>
+    const settingsToggle = document.getElementById("settingsToggle");
+    const themeCustomizer = document.getElementById("themeCustomizer");
+
+    settingsToggle.addEventListener("click", () => {
+        const isVisible = themeCustomizer.style.display === "block";
+        themeCustomizer.style.display = isVisible ? "none" : "block";
+    });
+
+    function applyThemeColors() {
+        document.documentElement.style.setProperty('--light-bg', document.getElementById('lightBG').value);
+        document.documentElement.style.setProperty('--light-card', document.getElementById('lightCard').value);
+        document.documentElement.style.setProperty('--dark-bg', document.getElementById('darkBG').value);
+        document.documentElement.style.setProperty('--dark-card', document.getElementById('darkCard').value);
+    }
+</script>
+
 </body>
 
-</html>hel
+</html>
