@@ -840,6 +840,7 @@ h1 {
     cursor: pointer;
     z-index: 2100;
 }
+
 .code-example-wrapper {
     position: relative;
 }
@@ -883,6 +884,7 @@ h1 {
     cursor: pointer;
     z-index: 2100;
 }
+
 .fullscreen-code * {
     pointer-events: auto !important;
 }
