@@ -1,3 +1,79 @@
+/* Add these dark mode fixes to your styles.css file */
+
+/* Fix for flashcard content and quiz modal backgrounds */
+body.dark #flashcard-content {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark .bg-slate-50 { 
+    background-color: #334155 !important; 
+}
+
+/* Quiz and Modal fixes */
+body.dark #quiz-modal .bg-white {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+}
+
+body.dark #quiz-modal {
+    color: #f1f5f9 !important;
+}
+
+/* Fix for any remaining white backgrounds */
+body.dark .bg-white,
+body.dark [class*="bg-white"] {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+}
+
+/* Fix for explanation sections */
+body.dark .bg-indigo-50 {
+    background-color: rgba(49, 46, 129, 0.3) !important;
+    color: #f1f5f9 !important;
+}
+
+/* Fix for border colors in dark mode */
+body.dark .border-slate-200 { 
+    border-color: #334155 !important; 
+}
+
+body.dark .border-indigo-200 {
+    border-color: #475569 !important;
+}
+
+/* Fix for any content containers */
+body.dark .content-container,
+body.dark .explanation-container,
+body.dark .resource-container {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+}
+
+/* Specific fix for module card backgrounds */
+body.dark .module-card {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+}
+
+/* Fix for code explanation boxes */
+body.dark .border-l-indigo-500 {
+    background-color: rgba(49, 46, 129, 0.3) !important;
+    border-left-color: #6366f1 !important;
+}
+
+/* Additional safety net for any missed white backgrounds */
+body.dark *[style*="background-color: white"],
+body.dark *[style*="background-color: #ffffff"],
+body.dark *[style*="background-color: #fff"] {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+}
+
+
+
 /* CSS Reset and Base Styles */
 * {
     margin: 0;

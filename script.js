@@ -57,44 +57,255 @@ const flashcards = [
     {
         id: 1,
         question: "What is the time complexity of accessing an element in an array by index?",
-        answer: "O(1) - Constant time\n\nArrays provide direct access to elements using their index. Since memory addresses are calculated using: base_address + (index × element_size), this operation takes the same amount of time regardless of array size."
+        answer: "O(1) - Constant time\n\nArrays provide direct access to elements using their index."
     },
     {
         id: 2,
         question: "What is the difference between Array and ArrayList in Java?",
-        answer: "Array: Fixed size, can store primitives and objects, faster access\nArrayList: Dynamic size, only stores objects (autoboxes primitives), part of Collections framework\n\nArray: int[] arr = new int[5];\nArrayList: ArrayList<Integer> list = new ArrayList<>();"
+        answer: "Array: Fixed size, can store primitives and objects\nArrayList: Dynamic size, stores only objects\n\nArray: int[] arr = new int[5];\nArrayList: ArrayList<Integer> list = new ArrayList<>();"
     },
     {
         id: 3,
         question: "Explain the Two Pointer technique with an example.",
-        answer: "Two Pointer technique uses two pointers (usually left and right) to traverse data from both ends toward the center.\n\nExample - Checking palindrome:\nleft = 0, right = str.length - 1\nCompare characters at both positions\nMove pointers inward until they meet\n\nTime: O(n), Space: O(1)"
+        answer: "Use two pointers to scan data from both ends.\n\nExample: Check if a string is a palindrome.\nleft = 0, right = str.length - 1\nCompare and move inward.\n\nTime: O(n), Space: O(1)"
     },
     {
         id: 4,
-        question: "What is a LinkedList and when would you use it over an Array?",
-        answer: "LinkedList: Dynamic data structure where elements (nodes) contain data and pointer to next node.\n\nUse LinkedList when:\n• Frequent insertions/deletions at beginning\n• Unknown size that changes often\n• No need for random access\n\nUse Array when:\n• Need random access by index\n• Memory usage is a concern\n• Cache performance matters"
+        question: "What is a LinkedList and when to use it?",
+        answer: "LinkedList stores elements as nodes with next pointers.\n\nUse when:\n• Frequent insert/delete\n• Unknown or changing size\n• No random access needed"
     },
     {
         id: 5,
-        question: "How does Floyd's Cycle Detection Algorithm work?",
-        answer: "Floyd's Algorithm (Tortoise and Hare):\n• Two pointers: slow (moves 1 step) and fast (moves 2 steps)\n• If there's a cycle, fast will eventually meet slow\n• If no cycle, fast reaches null\n\nWhy it works: In a cycle, the fast pointer gains 1 position on slow pointer each iteration, so they must eventually meet."
+        question: "How does Floyd’s Cycle Detection Algorithm work?",
+        answer: "Use two pointers (slow and fast).\nIf there's a cycle, fast eventually meets slow.\nIf not, fast reaches null.\n\nUsed to detect loops in linked lists."
     },
     {
         id: 6,
-        question: "What is the difference between Stack and Queue?",
-        answer: "Stack (LIFO - Last In, First Out):\n• push() - add to top\n• pop() - remove from top\n• Used in: function calls, undo operations, expression evaluation\n\nQueue (FIFO - First In, First Out):\n• enqueue() - add to rear\n• dequeue() - remove from front\n• Used in: BFS, scheduling, buffering"
+        question: "Stack vs Queue?",
+        answer: "Stack: LIFO (push/pop)\nQueue: FIFO (enqueue/dequeue)\n\nStack: Used in recursion, undo\nQueue: Used in BFS, scheduling"
     },
     {
         id: 7,
-        question: "Explain Big O notation with examples.",
-        answer: "Big O describes upper bound of time/space complexity:\n\nO(1) - Constant: array[index]\nO(log n) - Logarithmic: binary search\nO(n) - Linear: array traversal\nO(n log n) - Linearithmic: merge sort\nO(n²) - Quadratic: nested loops\nO(2ⁿ) - Exponential: recursive fibonacci\n\nFocus on worst-case, drop constants and lower terms."
+        question: "What is Big O notation?",
+        answer: "Big O describes worst-case time/space complexity.\n\nExamples:\nO(1) - array access\nO(log n) - binary search\nO(n²) - nested loops"
     },
     {
         id: 8,
-        question: "What is a Binary Search Tree (BST) and its properties?",
-        answer: "BST Properties:\n• Left subtree values < root value\n• Right subtree values > root value\n• Both subtrees are also BSTs\n• No duplicate values (typically)\n\nOperations (average case):\n• Search: O(log n)\n• Insert: O(log n)\n• Delete: O(log n)\n\nWorst case (unbalanced): O(n)"
+        question: "What is a Binary Search Tree (BST)?",
+        answer: "Left < root < right\nAll subtrees are also BSTs\n\nAverage time: O(log n)\nWorst case (unbalanced): O(n)"
+    },
+    {
+        id: 9,
+        question: "What does the sliding window technique solve?",
+        answer: "Efficient for subarray problems (like max sum of size k).\nMove a window across data and update result without restarting.\n\nTime: O(n)"
+    },
+    {
+        id: 10,
+        question: "What is the use of prefix sum arrays?",
+        answer: "Helps in fast range sum queries.\n\nprefix[i] = sum(arr[0] to arr[i])\n\nTime: O(1) for range sum after O(n) setup"
+    },
+    {
+        id: 11,
+        question: "When to use a HashMap?",
+        answer: "Use when you need fast key-based lookup.\nAverage Time: O(1) for get/put\n\nExample: Frequency counter"
+    },
+    {
+        id: 12,
+        question: "What is the purpose of dynamic programming?",
+        answer: "Used to solve overlapping subproblems.\nStore results (memoization or tabulation)\n\nExample: Fibonacci, knapsack"
+    },
+    {
+        id: 13,
+        question: "What’s the difference between DFS and BFS?",
+        answer: "DFS: Goes deep using stack/recursion\nBFS: Level-order using queue\n\nUsed for different types of graph exploration"
+    },
+    {
+        id: 14,
+        question: "What is a Heap?",
+        answer: "Binary tree with parent-child ordering.\nMin Heap: parent ≤ children\nMax Heap: parent ≥ children\n\nUsed in Priority Queues"
+    },
+    {
+        id: 15,
+        question: "What is memoization?",
+        answer: "Top-down DP approach.\nStore function call results in cache to avoid repeated work.\n\nUsed in recursion-heavy problems"
+    },
+    {
+        id: 16,
+        question: "What is tabulation?",
+        answer: "Bottom-up DP approach.\nBuild solutions iteratively in a table.\nNo recursion needed."
+    },
+    {
+        id: 17,
+        question: "When is binary search used?",
+        answer: "Used on sorted arrays/lists.\nTime: O(log n)\n\nSplit search space in half each time."
+    },
+    {
+        id: 18,
+        question: "How to reverse a linked list?",
+        answer: "Use three pointers: prev, curr, next\nIterate and reverse the next pointers\n\nTime: O(n)"
+    },
+    {
+        id: 19,
+        question: "What’s the space and time of merge sort?",
+        answer: "Time: O(n log n)\nSpace: O(n)\n\nIt’s stable and works well on linked lists"
+    },
+    {
+        id: 20,
+        question: "What is a Graph?",
+        answer: "Set of nodes connected by edges\nCan be directed/undirected, weighted/unweighted\n\nUsed to model networks, maps, etc."
+    },
+    {
+        id: 21,
+        question: "What is a Trie?",
+        answer: "Tree used for efficient string storage.\nCommon prefixes are shared.\nUsed in autocomplete and word search."
+    },
+    {
+        id: 22,
+        question: "How does quicksort work?",
+        answer: "Pick pivot, partition elements\nRecursively sort partitions\n\nTime: Avg O(n log n), Worst O(n²)"
+    },
+    {
+        id: 23,
+        question: "What is backtracking?",
+        answer: "Try a solution path, if it fails, go back and try another.\nUsed in puzzles, permutations, n-queens."
+    },
+    {
+        id: 24,
+        question: "What’s the difference between recursion and iteration?",
+        answer: "Recursion: function calls itself\nIteration: uses loops\n\nRecursion is often cleaner but uses more stack space"
+    },
+    {
+        id: 25,
+        question: "What is a hash function?",
+        answer: "Function that maps keys to indices\nUsed in hash tables\nShould minimize collisions"
+    },
+    {
+        id: 26,
+        question: "What is the best case and worst case for bubble sort?",
+        answer: "Best: O(n) if already sorted\nWorst: O(n²) with many swaps"
+    },
+    {
+        id: 27,
+        question: "What’s a priority queue?",
+        answer: "Queue where elements are removed by priority.\nOften implemented with heaps."
+    },
+    {
+        id: 28,
+        question: "What is the use of a Set in Java?",
+        answer: "Stores unique elements.\nUseful for checking duplicates in O(1) time"
+    },
+    {
+        id: 29,
+        question: "What is a base case in recursion?",
+        answer: "The stopping condition of a recursive function.\nWithout it, you get infinite recursion."
+    },
+    {
+        id: 30,
+        question: "What is the difference between == and .equals() in Java?",
+        answer: "== compares references\n.equals() compares actual values"
+    },
+    {
+        id: 31,
+        question: "When to use TreeMap vs HashMap?",
+        answer: "TreeMap keeps keys sorted (O(log n))\nHashMap is unordered (O(1))"
+    },
+    {
+        id: 32,
+        question: "What’s a balanced binary tree?",
+        answer: "Tree where left and right subtrees of every node differ in height by at most 1"
+    },
+    {
+        id: 33,
+        question: "What’s the difference between call stack and heap?",
+        answer: "Call stack: stores function calls\nHeap: stores dynamically allocated memory"
+    },
+    {
+        id: 34,
+        question: "What is tail recursion?",
+        answer: "Recursive call is the last statement in the function.\nCan be optimized to use less stack"
+    },
+    {
+        id: 35,
+        question: "What’s the difference between BFS and Dijkstra?",
+        answer: "BFS: for unweighted graphs\nDijkstra: for weighted graphs (no negative weights)"
+    },
+    {
+        id: 36,
+        question: "What is a sentinel node in linked lists?",
+        answer: "Dummy node that simplifies insertions/deletions at head/tail."
+    },
+    {
+        id: 37,
+        question: "What is amortized analysis?",
+        answer: "Average performance per operation over a sequence of operations"
+    },
+    {
+        id: 38,
+        question: "What’s the time complexity of hashmap operations?",
+        answer: "Average: O(1)\nWorst-case (with collisions): O(n)"
+    },
+    {
+        id: 39,
+        question: "What is graph coloring?",
+        answer: "Assign colors to vertices so no two adjacent vertices have the same color.\nUsed in scheduling problems"
+    },
+    {
+        id: 40,
+        question: "What is an adjacency matrix good for?",
+        answer: "Fast edge lookup (O(1))\nNot space-efficient for sparse graphs"
+    },
+    {
+        id: 41,
+        question: "What are the properties of a Binary Search Tree?",
+        answer: "Left < root < right\nNo duplicates\nSubtrees are also BSTs"
+    },
+    {
+        id: 42,
+        question: "What is the difference between pre-order, in-order, and post-order traversal?",
+        answer: "Pre-order: root, left, right\nIn-order: left, root, right\nPost-order: left, right, root"
+    },
+    {
+        id: 43,
+        question: "What is topological sorting?",
+        answer: "Linear ordering of nodes in a DAG so u comes before v for all edges u → v"
+    },
+    {
+        id: 44,
+        question: "What is a Disjoint Set Union (Union-Find)?",
+        answer: "Tracks a set of elements split into disjoint groups.\nSupports union and find operations"
+    },
+    {
+        id: 45,
+        question: "What is path compression in Union-Find?",
+        answer: "Optimization that flattens the structure of the tree to speed up future operations"
+    },
+    {
+        id: 46,
+        question: "What is a lazy update in Segment Trees?",
+        answer: "Delays update propagation to improve performance in range updates"
+    },
+    {
+        id: 47,
+        question: "What’s the difference between min heap and max heap?",
+        answer: "Min heap: smallest element at root\nMax heap: largest element at root"
+    },
+    {
+        id: 48,
+        question: "How to detect a cycle in a graph?",
+        answer: "Use DFS with visited and recursion stack OR Union-Find"
+    },
+    {
+        id: 49,
+        question: "What’s the difference between a shallow copy and deep copy?",
+        answer: "Shallow: copies reference\nDeep: copies entire object structure"
+    },
+    {
+        id: 50,
+        question: "What is the Knapsack problem?",
+        answer: "Optimization problem to choose items with max value and weight <= capacity\nSolved with DP"
     }
 ];
+
 
 // Glossary Data  
 const glossaryTerms = [
@@ -197,8 +408,164 @@ const glossaryTerms = [
         term: "Greedy Algorithm",
         definition: "Problem-solving approach that makes locally optimal choice at each step.",
         category: "Techniques"
+    },
+    {
+        term: "Sorting Algorithm",
+        definition: "Algorithm that rearranges elements in a certain order (e.g., ascending or descending).",
+        category: "Algorithms"
+    },
+    {
+        term: "Merge Sort",
+        definition: "Divide-and-conquer sorting algorithm with O(n log n) time complexity in all cases.",
+        category: "Algorithms"
+    },
+    {
+        term: "Quick Sort",
+        definition: "Efficient sorting algorithm that partitions array around pivot; average case O(n log n).",
+        category: "Algorithms"
+    },
+    {
+        term: "Bubble Sort",
+        definition: "Simple sorting algorithm that repeatedly swaps adjacent elements if they’re in the wrong order.",
+        category: "Algorithms"
+    },
+    {
+        term: "Selection Sort",
+        definition: "In-place sorting algorithm that repeatedly selects the minimum element and places it at the beginning.",
+        category: "Algorithms"
+    },
+    {
+        term: "Insertion Sort",
+        definition: "Builds sorted array one element at a time by inserting items into their correct position.",
+        category: "Algorithms"
+    },
+    {
+        term: "Binary Heap",
+        definition: "Binary tree where parent is smaller (min-heap) or larger (max-heap) than its children.",
+        category: "Data Structures"
+    },
+    {
+        term: "Floyd’s Cycle Detection",
+        definition: "Algorithm that detects cycles in linked lists using two pointers moving at different speeds.",
+        category: "Algorithms"
+    },
+    {
+        term: "Adjacency List",
+        definition: "Graph representation using lists where each node stores its neighboring nodes.",
+        category: "Data Structures"
+    },
+    {
+        term: "Adjacency Matrix",
+        definition: "2D array used to represent a graph, where cells denote presence or absence of edges.",
+        category: "Data Structures"
+    },
+    {
+        term: "Bit Manipulation",
+        definition: "Using bitwise operators (AND, OR, XOR, SHIFT) to solve problems efficiently.",
+        category: "Techniques"
+    },
+    {
+        term: "Prefix Sum",
+        definition: "Array that stores cumulative sums to enable quick range sum queries.",
+        category: "Techniques"
+    },
+    {
+        term: "Memoization",
+        definition: "Optimization that stores results of expensive function calls to avoid redundant computations.",
+        category: "Techniques"
+    },
+    {
+        term: "Tabulation",
+        definition: "Bottom-up dynamic programming technique using iteration and storage of intermediate results.",
+        category: "Techniques"
+    },
+    {
+        term: "Trie",
+        definition: "Prefix tree used for storing and searching strings efficiently.",
+        category: "Data Structures"
+    },
+    {
+        term: "Set",
+        definition: "Unordered collection of unique elements with fast lookup, insertion, and deletion.",
+        category: "Data Structures"
+    },
+    {
+        term: "Map",
+        definition: "Key-value pair data structure with efficient lookup and update operations.",
+        category: "Data Structures"
+    },
+    {
+        term: "Sliding Window",
+        definition: "Technique that uses a window (range) over data to solve subarray or substring problems efficiently.",
+        category: "Techniques"
+    },
+    {
+        term: "Divide and Conquer",
+        definition: "Algorithmic approach that breaks a problem into subproblems, solves each recursively, and combines results.",
+        category: "Techniques"
+    },
+    {
+        term: "Backtracking",
+        definition: "Recursive technique that tries possible solutions and undoes changes when a path fails.",
+        category: "Techniques"
+    },
+    {
+        term: "AVL Tree",
+        definition: "Self-balancing binary search tree where heights of left and right subtrees differ by at most one.",
+        category: "Data Structures"
+    },
+    {
+        term: "Red-Black Tree",
+        definition: "Self-balancing binary search tree with color rules to maintain balance.",
+        category: "Data Structures"
+    },
+    {
+        term: "Splay Tree",
+        definition: "Self-adjusting binary search tree that moves accessed elements to the root.",
+        category: "Data Structures"
+    },
+    {
+        term: "Union-Find",
+        definition: "Disjoint set data structure that tracks element groupings and supports union and find operations.",
+        category: "Data Structures"
+    },
+    {
+        term: "Path Compression",
+        definition: "Optimization in union-find to flatten tree structure for faster lookups.",
+        category: "Techniques"
+    },
+    {
+        term: "Topological Sort",
+        definition: "Linear ordering of graph vertices such that for every edge u → v, u appears before v.",
+        category: "Algorithms"
+    },
+    {
+        term: "Minimum Spanning Tree (MST)",
+        definition: "Subset of edges in a weighted graph that connects all vertices with minimum total weight.",
+        category: "Algorithms"
+    },
+    {
+        term: "Dijkstra’s Algorithm",
+        definition: "Greedy algorithm to find the shortest path from a source to all vertices in a weighted graph.",
+        category: "Algorithms"
+    },
+    {
+        term: "Bellman-Ford Algorithm",
+        definition: "Algorithm that computes shortest paths even with negative edge weights.",
+        category: "Algorithms"
+    },
+    {
+        term: "Kruskal’s Algorithm",
+        definition: "Greedy algorithm to build a minimum spanning tree by sorting all edges by weight.",
+        category: "Algorithms"
+    },
+    {
+        term: "Prim’s Algorithm",
+        definition: "Greedy algorithm that grows a minimum spanning tree from a starting node.",
+        category: "Algorithms"
     }
 ];
+
 
 // Quiz Data
 const quizData = {
