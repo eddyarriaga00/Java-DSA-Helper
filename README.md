@@ -1,6 +1,6 @@
 # ☕ Java DSA Learning Hub
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://your-username.github.io/java-dsa-learning-hub)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://eddyarriaga00.github.io/Java-DSA-Helper/)
 [![GitHub Stars](https://img.shields.io/github/stars/your-username/java-dsa-learning-hub?style=for-the-badge)](https://github.com/your-username/java-dsa-learning-hub/stargazers)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
@@ -55,10 +55,9 @@ A comprehensive, interactive learning platform designed specifically for student
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/java-dsa-learning-hub.git
+git clone https://eddyarriaga00.github.io/Java-DSA-Helper/.git
 cd java-dsa-learning-hub
 ```
-
 ### 2. Open Locally
 ```bash
 # Simply open index.html in your browser
@@ -129,8 +128,6 @@ Modify the CSS variables in `styles.css`:
 
 ## 🤝 Contributing
 
-We welcome contributions! Here's how you can help:
-
 ### Ways to Contribute
 - 🐛 **Report Bugs** - Found an issue? Let us know!
 - ✨ **Suggest Features** - Have ideas for improvements?
@@ -163,7 +160,6 @@ We welcome contributions! Here's how you can help:
 - [ ] **Community Hub** - Discussion forums and peer help
 
 ## 💝 Support the Project
-
 If you find this project helpful, please consider:
 
 - ⭐ **Star this repository**
@@ -178,9 +174,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Creator**: Eddy Arriaga-Barrientos
-- **GitHub**: [@your-username](https://github.com/your-username)
-- **Email**: your.email@example.com
-- **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/your-profile)
+- **GitHub**: [@your-username](https://github.com/eddyarriaga00/)
+- **Email**: eddyarriaga123@gmail.com
+- **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/eddy-arriaga/)
 
 ---
 
