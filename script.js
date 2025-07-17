@@ -26,7 +26,7 @@ const appState = {
 const CONSTANTS = {
     CODE_PREVIEW_LINES: 15,
     TRUNCATE_INDICATOR: '\n\n// ... (click Expand to see full code)',
-    TOTAL_MODULES: 20
+    TOTAL_MODULES: 34
 };
 
 const SUPPORTED_LANGUAGES = {
@@ -43,7 +43,7 @@ const CODE_MODES = {
 
 const DIFFICULTY_COLORS = {
     beginner: 'bg-emerald-100 text-emerald-800',
-    intermediate: 'bg-yellow-100 text-yellow-800', 
+    intermediate: 'bg-yellow-100 text-yellow-800',
     advanced: 'bg-rose-100 text-rose-800',
     default: 'bg-slate-100 text-slate-800'
 };
@@ -624,7 +624,6 @@ const quizData = {
         }]
     }
 };
-
 // Modules Data (Complete with ALL LANGUAGES)
 const modules = [
     {
@@ -846,7 +845,19 @@ const isPalindromeFunctional = str => {
 };`
         },
         explanation: 'Arrays and strings form the foundation of programming. Arrays provide indexed access to elements, while strings are sequences of characters. Key concepts include traversal patterns, the two-pointer technique for efficient processing, and understanding how memory layout affects performance. These data structures appear in countless real-world applications.',
-        resources: ['Array Manipulation Guide', 'String Processing Techniques', 'Two Pointer Method']
+        resources: [
+            'JUnit 5 Guide',  // Plain text
+            {
+                text: 'Official JUnit Documentation',
+                url: 'youtube.com'
+            },
+            'Test Driven Development',  // Plain text
+            {
+                text: 'Martin Fowler - Test Pyramid',
+                url: 'https://martinfowler.com/articles/practical-test-pyramid.html'
+            }
+        ]
+
     },
     {
         id: 'linked-lists',
@@ -1398,6 +1409,469 @@ public class BitManipulation {
 }`,
         explanation: 'Bit manipulation concepts will be expanded...',
         resources: ['Bitwise Operations', 'Bit Tricks']
+    },
+
+    // BASIC PROGRAMMING CONCEPTS (Great for beginners)
+
+    {
+        id: 'java-basics',
+        title: 'Java Fundamentals',
+        description: 'Learn the core concepts of Java programming language.',
+        difficulty: 'beginner',
+        topics: ['Variables', 'Data Types', 'Methods', 'Classes', 'Objects'],
+        codeExample: `// Java Basics - Variables and Methods
+public class JavaBasics {
+    // Instance variables
+    private String name;
+    private int age;
+    
+    // Constructor
+    public JavaBasics(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // Method with return value
+    public String getInfo() {
+        return "Name: " + name + ", Age: " + age;
+    }
+    
+    // Static method
+    public static void main(String[] args) {
+        JavaBasics person = new JavaBasics("Alice", 25);
+        System.out.println(person.getInfo());
+    }
+}`,
+        explanation: 'Java fundamentals will be expanded with comprehensive examples...',
+        resources: ['Java Documentation', 'Oracle Java Tutorials', 'Java Syntax Guide']
+    },
+
+    {
+        id: 'control-flow',
+        title: 'Control Flow Statements',
+        description: 'Master if-else, loops, and switch statements in Java.',
+        difficulty: 'beginner',
+        topics: ['If-Else', 'For Loops', 'While Loops', 'Switch', 'Break/Continue'],
+        codeExample: `// Control Flow Examples
+public class ControlFlow {
+    public static void main(String[] args) {
+        // If-else example
+        int score = 85;
+        if (score >= 90) {
+            System.out.println("A grade");
+        } else if (score >= 80) {
+            System.out.println("B grade");
+        } else {
+            System.out.println("C grade or below");
+        }
+        
+        // For loop example
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Count: " + i);
+        }
+        
+        // Enhanced for loop
+        int[] numbers = {1, 2, 3, 4, 5};
+        for (int num : numbers) {
+            System.out.println("Number: " + num);
+        }
+    }
+}`,
+        explanation: 'Control flow concepts will be expanded...',
+        resources: ['Java Control Statements', 'Loop Examples', 'Conditional Logic']
+    },
+
+    {
+        id: 'oop-basics',
+        title: 'Object-Oriented Programming',
+        description: 'Understand encapsulation, inheritance, polymorphism, and abstraction.',
+        difficulty: 'beginner',
+        topics: ['Encapsulation', 'Inheritance', 'Polymorphism', 'Abstraction', 'Interfaces'],
+        codeExample: `
+        // OOP Concepts
+abstract class Animal {
+    protected String name;
+    
+    public Animal(String name) {
+        this.name = name;
+    }
+    
+    public abstract void makeSound();
+    
+    public void sleep() {
+        System.out.println(name + " is sleeping");
+    }
+}
+
+class Dog extends Animal {
+    public Dog(String name) {
+        super(name);
+    }
+    
+    @Override
+    public void makeSound() {
+        System.out.println(name + " says Woof!");
+    }
+}`,
+        explanation: 'OOP principles will be explained in detail...',
+        resources: ['OOP in Java', 'Inheritance Examples', 'Interface vs Abstract']
+    },
+
+    {
+        id: 'exception-handling',
+        title: 'Exception Handling',
+        description: 'Learn to handle errors gracefully with try-catch blocks.',
+        difficulty: 'beginner',
+        topics: ['Try-Catch', 'Finally Block', 'Custom Exceptions', 'Throws', 'Exception Types'],
+        codeExample: `
+        // Exception Handling
+public class ExceptionExample {
+    public static void divide(int a, int b) {
+        try {
+            int result = a / b;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero!");
+        } finally {
+            System.out.println("Division operation completed.");
+        }
+    }
+    
+    // Custom exception
+    public static void validateAge(int age) throws InvalidAgeException {
+        if (age < 0) {
+            throw new InvalidAgeException("Age cannot be negative");
+        }
+    }
+}`,
+        explanation: 'Exception handling patterns will be detailed...',
+        resources: ['Java Exceptions', 'Error Handling Best Practices']
+    },
+
+    // INTERMEDIATE CONCEPTS
+
+    {
+        id: 'collections-framework',
+        title: 'Java Collections Framework',
+        description: 'Master ArrayList, HashMap, HashSet, and other collection classes.',
+        difficulty: 'intermediate',
+        topics: ['ArrayList', 'HashMap', 'HashSet', 'TreeMap', 'LinkedList', 'Iterators'],
+        codeExample: `// Collections Framework
+import java.util.*;
+
+public class CollectionsExample {
+    public static void main(String[] args) {
+        // ArrayList example
+        List<String> fruits = new ArrayList<>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        
+        // HashMap example
+        Map<String, Integer> scores = new HashMap<>();
+        scores.put("Alice", 95);
+        scores.put("Bob", 87);
+        
+        // HashSet example
+        Set<Integer> uniqueNumbers = new HashSet<>();
+        uniqueNumbers.add(1);
+        uniqueNumbers.add(2);
+        uniqueNumbers.add(1); // Duplicate ignored
+        
+        System.out.println("Unique numbers: " + uniqueNumbers.size());
+    }
+}`,
+        explanation: 'Collections framework usage will be expanded...',
+        resources: ['Java Collections', 'Map vs Set', 'Collection Performance']
+    },
+
+    {
+        id: 'file-io',
+        title: 'File Input/Output',
+        description: 'Read from and write to files using Java I/O streams.',
+        difficulty: 'intermediate',
+        topics: ['FileReader', 'FileWriter', 'BufferedReader', 'Scanner', 'Path API'],
+        codeExample: `// File I/O Operations
+import java.io.*;
+import java.util.Scanner;
+
+public class FileIOExample {
+    public static void writeToFile(String filename, String content) {
+        try (FileWriter writer = new FileWriter(filename)) {
+            writer.write(content);
+            System.out.println("File written successfully!");
+        } catch (IOException e) {
+            System.out.println("Error writing file: " + e.getMessage());
+        }
+    }
+    
+    public static void readFromFile(String filename) {
+        try (Scanner scanner = new Scanner(new File(filename))) {
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
+        }
+    }
+}`,
+        explanation: 'File I/O operations will be detailed...',
+        resources: ['Java I/O Streams', 'File Handling', 'NIO.2 Path API']
+    },
+
+    {
+        id: 'multithreading',
+        title: 'Multithreading Basics',
+        description: 'Introduction to concurrent programming with threads.',
+        difficulty: 'intermediate',
+        topics: ['Thread Class', 'Runnable Interface', 'Synchronization', 'Thread Safety'],
+        codeExample: `// Multithreading Example
+public class ThreadExample {
+    // Implementing Runnable
+    static class Counter implements Runnable {
+        private String name;
+        
+        public Counter(String name) {
+            this.name = name;
+        }
+        
+        @Override
+        public void run() {
+            for (int i = 1; i <= 5; i++) {
+                System.out.println(name + ": " + i);
+                try {
+                    Thread.sleep(1000); // Sleep for 1 second
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new Counter("Thread-1"));
+        Thread t2 = new Thread(new Counter("Thread-2"));
+        
+        t1.start();
+        t2.start();
+    }
+}`,
+        explanation: 'Threading concepts will be expanded...',
+        resources: ['Java Concurrency', 'Thread Synchronization', 'Executor Framework']
+    },
+
+    // ADVANCED CONCEPTS
+
+    {
+        id: 'design-patterns',
+        title: 'Design Patterns',
+        description: 'Learn common software design patterns and when to use them.',
+        difficulty: 'advanced',
+        topics: ['Singleton', 'Factory', 'Observer', 'Strategy', 'MVC'],
+        codeExample: `// Design Patterns - Singleton Example
+public class DatabaseConnection {
+    private static DatabaseConnection instance;
+    private String connectionString;
+    
+    private DatabaseConnection() {
+        connectionString = "jdbc:mysql://localhost:3306/mydb";
+    }
+    
+    public static synchronized DatabaseConnection getInstance() {
+        if (instance == null) {
+            instance = new DatabaseConnection();
+        }
+        return instance;
+    }
+    
+    public void connect() {
+        System.out.println("Connected to: " + connectionString);
+    }
+}
+
+// Factory Pattern Example
+interface Shape {
+    void draw();
+}
+
+class ShapeFactory {
+    public static Shape createShape(String type) {
+        switch (type.toLowerCase()) {
+            case "circle": return new Circle();
+            case "rectangle": return new Rectangle();
+            default: throw new IllegalArgumentException("Unknown shape");
+        }
+    }
+}`,
+        explanation: 'Design patterns implementation will be detailed...',
+        resources: ['Gang of Four Patterns', 'Java Design Patterns', 'When to Use Patterns']
+    },
+
+    {
+        id: 'lambda-streams',
+        title: 'Lambda Expressions & Streams',
+        description: 'Master functional programming features introduced in Java 8.',
+        difficulty: 'advanced',
+        topics: ['Lambda Expressions', 'Stream API', 'Method References', 'Functional Interfaces'],
+        codeExample: `// Lambda and Streams
+import java.util.*;
+import java.util.stream.*;
+
+public class LambdaStreamExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        
+        // Lambda with Streams
+        List<Integer> evenSquares = numbers.stream()
+            .filter(n -> n % 2 == 0)           // Lambda expression
+            .map(n -> n * n)                   // Method reference alternative: Integer::square
+            .collect(Collectors.toList());
+        
+        System.out.println("Even squares: " + evenSquares);
+        
+        // More complex stream operations
+        OptionalDouble average = numbers.stream()
+            .mapToInt(Integer::intValue)
+            .filter(n -> n > 5)
+            .average();
+        
+        average.ifPresent(avg -> System.out.println("Average: " + avg));
+    }
+}`,
+        explanation: 'Functional programming concepts will be expanded...',
+        resources: ['Java 8 Features', 'Stream API Guide', 'Functional Programming']
+    },
+
+    {
+        id: 'generics',
+        title: 'Java Generics',
+        description: 'Write type-safe code using generic classes and methods.',
+        difficulty: 'intermediate',
+        topics: ['Generic Classes', 'Generic Methods', 'Wildcards', 'Type Erasure', 'Bounds'],
+        codeExample: `// Generics Example
+public class GenericExample {
+    // Generic class
+    static class Box<T> {
+        private T content;
+        
+        public void set(T content) {
+            this.content = content;
+        }
+        
+        public T get() {
+            return content;
+        }
+    }
+    
+    // Generic method
+    public static <T> void swap(T[] array, int i, int j) {
+        T temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    
+    // Bounded generics
+    public static <T extends Number> double average(T[] numbers) {
+        double sum = 0.0;
+        for (T num : numbers) {
+            sum += num.doubleValue();
+        }
+        return sum / numbers.length;
+    }
+}`,
+        explanation: 'Generics usage and benefits will be detailed...',
+        resources: ['Java Generics Tutorial', 'Type Safety', 'Wildcard Usage']
+    },
+
+    {
+        id: 'testing-junit',
+        title: 'Unit Testing with JUnit',
+        description: 'Learn to write and run unit tests for your Java code.',
+        difficulty: 'intermediate',
+        topics: ['JUnit Basics', 'Test Assertions', 'Test Lifecycle', 'Mocking', 'TDD'],
+        codeExample: `// JUnit Testing Example
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CalculatorTest {
+    private Calculator calculator;
+    
+    @BeforeEach
+    void setUp() {
+        calculator = new Calculator();
+    }
+    
+    @Test
+    @DisplayName("Addition should work correctly")
+    void testAddition() {
+        assertEquals(5, calculator.add(2, 3));
+        assertEquals(0, calculator.add(-1, 1));
+    }
+    
+    @Test
+    void testDivision() {
+        assertEquals(2.0, calculator.divide(10, 5), 0.001);
+        
+        // Testing exceptions
+        assertThrows(ArithmeticException.class, () -> {
+            calculator.divide(10, 0);
+        });
+    }
+    
+    @ParameterizedTest
+    @ValueSource(ints = {2, 4, 6, 8})
+    void testEvenNumbers(int number) {
+        assertTrue(calculator.isEven(number));
+    }
+}`,
+        explanation: 'Testing strategies and JUnit features will be expanded...',
+        resources: ['JUnit 5 Guide', 'Test Driven Development', 'Mocking Frameworks']
+    }
+
+    // DATABASE & WEB CONCEPTS
+
+    , {
+        id: 'jdbc-basics',
+        title: 'Database Connectivity (JDBC)',
+        description: 'Connect Java applications to databases using JDBC.',
+        difficulty: 'intermediate',
+        topics: ['JDBC Drivers', 'Connection', 'Statement', 'ResultSet', 'Prepared Statements'],
+        codeExample: `// JDBC Example
+import java.sql.*;
+
+public class JDBCExample {
+    private static final String URL = "jdbc:mysql://localhost:3306/school";
+    private static final String USER = "username";
+    private static final String PASSWORD = "password";
+    
+    public static void getStudents() {
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM students")) {
+            
+            while (rs.next()) {
+                System.out.println("ID: " + rs.getInt("id") + 
+                                 ", Name: " + rs.getString("name"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+        }
+    }
+    
+    public static void insertStudent(String name, int age) {
+        String sql = "INSERT INTO students (name, age) VALUES (?, ?)";
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, name);
+            pstmt.setInt(2, age);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error inserting student: " + e.getMessage());
+        }
+    }
+}`,
+        explanation: 'Database connectivity patterns will be expanded...',
+        resources: ['JDBC Tutorial', 'SQL Basics', 'Database Best Practices']
     }
 ];
 
@@ -1579,8 +2053,8 @@ function getDifficultyColor(difficulty) {
 
 function updateProgress() {
     const progressPercentage = Math.round((appState.completedModules.size / CONSTANTS.TOTAL_MODULES) * 100);
-    
-    document.getElementById('progress-text').textContent = 
+
+    document.getElementById('progress-text').textContent =
         `${appState.completedModules.size} of ${CONSTANTS.TOTAL_MODULES} modules completed`;
     document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
     document.getElementById('progress-percentage').textContent = `${progressPercentage}%`;
@@ -1589,7 +2063,7 @@ function updateProgress() {
 function updateDarkMode() {
     const body = document.body;
     const darkModeSlider = document.getElementById('dark-mode-slider');
-    
+
     if (appState.darkMode) {
         body.classList.add('dark');
         document.getElementById('dark-mode-toggle').classList.remove('bg-slate-300');
@@ -1608,7 +2082,7 @@ function updateDarkMode() {
 function updateCommentsToggle() {
     const commentsSlider = document.getElementById('comments-slider');
     const commentsToggle = document.getElementById('comments-toggle');
-    
+
     if (appState.showComments) {
         commentsToggle.classList.remove('bg-slate-300');
         commentsToggle.classList.add('bg-indigo-600');
@@ -1627,35 +2101,35 @@ function updateHeaderShrink() {
     const title = document.getElementById('main-title');
     const subtitle = document.getElementById('main-subtitle');
     const buttons = document.getElementById('header-buttons');
-    
+
     const progress = Math.min(appState.scrollY / 200, 1);
     const isScrolled = appState.scrollY > 10;
     const isFullyShrunken = appState.scrollY > 100;
-    
+
     // Header padding - smaller values for optimization
     const paddingY = Math.max(12 - progress * 6, 6);
     header.style.paddingTop = `${paddingY}px`;
     header.style.paddingBottom = `${paddingY}px`;
-    
+
     // Title size - optimized sizes
     if (isFullyShrunken) {
         title.className = title.className.replace(/text-\w+/g, '') + ' text-lg sm:text-xl lg:text-2xl';
     } else {
         title.className = title.className.replace(/text-\w+/g, '') + ' text-xl sm:text-2xl lg:text-3xl';
     }
-    
+
     // Subtitle opacity
     const subtitleOpacity = Math.max(1 - progress * 1.5, 0);
     subtitle.style.opacity = subtitleOpacity;
     subtitle.style.transform = subtitleOpacity < 0.3 ? 'translateY(-10px)' : 'translateY(0)';
-    
+
     // Buttons
     const buttonOpacity = Math.max(1 - progress * 1.2, 0);
     const buttonScale = Math.max(1 - progress * 0.3, 0.7);
     buttons.style.opacity = buttonOpacity;
     buttons.style.transform = `scale(${buttonScale})`;
     buttons.style.transformOrigin = 'top right';
-    
+
     // Add/remove shadow
     if (isScrolled) {
         header.classList.add('shadow-2xl', 'backdrop-blur-sm');
@@ -1666,13 +2140,13 @@ function updateHeaderShrink() {
 
 function filterModules() {
     return modules.filter(module => {
-        const matchesSearch = appState.searchTerm === '' || 
+        const matchesSearch = appState.searchTerm === '' ||
             module.title.toLowerCase().includes(appState.searchTerm.toLowerCase()) ||
             module.description.toLowerCase().includes(appState.searchTerm.toLowerCase()) ||
             module.topics.some(topic => topic.toLowerCase().includes(appState.searchTerm.toLowerCase()));
-        
+
         const matchesDifficulty = appState.difficultyFilter === 'all' || module.difficulty === appState.difficultyFilter;
-        
+
         return matchesSearch && matchesDifficulty;
     });
 }
@@ -1681,7 +2155,7 @@ function renderModules() {
     const filteredModules = filterModules();
     const grid = document.getElementById('modules-grid');
     const searchResultsCount = document.getElementById('search-results-count');
-    
+
     // Update search results count
     if (filteredModules.length !== modules.length) {
         searchResultsCount.textContent = `Showing ${filteredModules.length} of ${modules.length} modules`;
@@ -1689,20 +2163,20 @@ function renderModules() {
     } else {
         searchResultsCount.style.display = 'none';
     }
-    
+
     grid.innerHTML = filteredModules.map(module => {
         const isCompleted = appState.completedModules.has(module.id);
         const isCodeExpanded = appState.expandedCode.has(module.id);
         const currentLanguage = getModuleLanguage(module.id);
         const currentMode = getModuleMode(module.id);
         const hasMultipleLanguages = module.codeExamples && Object.keys(module.codeExamples).length > 1;
-        
+
         const codeToDisplay = getCodeExample(module);
         const displayCode = isCodeExpanded ? codeToDisplay : truncateCode(codeToDisplay);
         const showExpandButton = codeToDisplay.split('\n').length > CONSTANTS.CODE_PREVIEW_LINES;
-        
+
         const processedCode = processCode(displayCode, module.id);
-        
+
         return `
             <div class="module-card bg-white border-slate-200 rounded-xl p-4 sm:p-6 shadow-xl border hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <!-- Module Header -->
@@ -1757,12 +2231,12 @@ function renderModules() {
                             ${hasMultipleLanguages ? `
                                 <select onchange="setModuleLanguage('${module.id}', this.value)" class="text-xs px-2 py-1 rounded bg-blue-500 hover:bg-blue-600 text-white border-0 font-medium" title="Select Programming Language">
                                     ${Object.entries(SUPPORTED_LANGUAGES).map(([langKey, langInfo]) =>
-                                        module.codeExamples && module.codeExamples[langKey] ? `
+            module.codeExamples && module.codeExamples[langKey] ? `
                                             <option value="${langKey}" ${currentLanguage === langKey ? 'selected' : ''} class="bg-white text-black">
                                                 ${langInfo.icon} ${langInfo.name}
                                             </option>
                                         ` : ''
-                                    ).join('')}
+        ).join('')}
                                 </select>
                             ` : ''}
 
@@ -1832,7 +2306,7 @@ function renderGlossary() {
     );
 
     const content = document.getElementById('glossary-content');
-    
+
     if (filteredTerms.length === 0) {
         content.innerHTML = `
             <div class="col-span-2 text-center py-12">
@@ -2086,8 +2560,8 @@ function renderQuiz() {
             <div class="text-center">
                 <div class="mb-6">
                     <div class="text-6xl mb-4">
-                        ${appState.currentQuiz.score === appState.currentQuiz.questions.length ? '🎉' : 
-                          appState.currentQuiz.score >= appState.currentQuiz.questions.length * 0.7 ? '👏' : '📚'}
+                        ${appState.currentQuiz.score === appState.currentQuiz.questions.length ? '🎉' :
+                appState.currentQuiz.score >= appState.currentQuiz.questions.length * 0.7 ? '👏' : '📚'}
                     </div>
                     <h4 class="text-3xl font-bold mb-2 text-indigo-600">Quiz Complete!</h4>
                     <p class="text-xl text-slate-800">
@@ -2145,7 +2619,7 @@ function answerQuestion(answerIndex) {
 
 function nextQuestion() {
     if (!appState.currentQuiz) return;
-    
+
     if (appState.currentQuiz.currentQuestion < appState.currentQuiz.questions.length - 1) {
         appState.currentQuiz.currentQuestion++;
         renderQuiz();
@@ -2154,7 +2628,7 @@ function nextQuestion() {
         const score = appState.currentQuiz.answers.reduce((acc, answer, index) => {
             return acc + (answer === appState.currentQuiz.questions[index].correct ? 1 : 0);
         }, 0);
-        
+
         appState.currentQuiz.showResults = true;
         appState.currentQuiz.score = score;
         renderQuiz();
@@ -2163,7 +2637,7 @@ function nextQuestion() {
 
 function prevQuestion() {
     if (!appState.currentQuiz) return;
-    
+
     if (appState.currentQuiz.currentQuestion > 0) {
         appState.currentQuiz.currentQuestion--;
         renderQuiz();
@@ -2172,7 +2646,7 @@ function prevQuestion() {
 
 function restartQuiz() {
     if (!appState.currentQuiz) return;
-    
+
     appState.currentQuiz.currentQuestion = 0;
     appState.currentQuiz.answers = [];
     appState.currentQuiz.showResults = false;
@@ -2360,7 +2834,7 @@ function copyCodeToClipboard(moduleId) {
 function showToast(message, type = 'info') {
     const toast = document.createElement('div');
     toast.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-medium transition-all duration-300 transform translate-x-full`;
-    
+
     switch (type) {
         case 'success':
             toast.classList.add('bg-green-500');
@@ -2374,15 +2848,15 @@ function showToast(message, type = 'info') {
         default:
             toast.classList.add('bg-blue-500');
     }
-    
+
     toast.textContent = message;
     document.body.appendChild(toast);
-    
+
     // Animate in
     setTimeout(() => {
         toast.classList.remove('translate-x-full');
     }, 100);
-    
+
     // Animate out and remove
     setTimeout(() => {
         toast.classList.add('translate-x-full');
@@ -2395,7 +2869,7 @@ function showToast(message, type = 'info') {
 // Enhanced search functionality
 function highlightSearchTerm(text, searchTerm) {
     if (!searchTerm) return text;
-    
+
     const regex = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
     return text.replace(regex, '<mark class="bg-yellow-200 px-1 rounded">$1</mark>');
 }
@@ -2412,14 +2886,14 @@ function getModuleStats() {
         acc[module.difficulty] = (acc[module.difficulty] || 0) + 1;
         return acc;
     }, {});
-    
+
     const completedByDifficulty = modules.reduce((acc, module) => {
         if (appState.completedModules.has(module.id)) {
             acc[module.difficulty] = (acc[module.difficulty] || 0) + 1;
         }
         return acc;
     }, {});
-    
+
     return {
         total,
         completed,
@@ -2449,11 +2923,11 @@ function exportProgress() {
             }
         }
     };
-    
+
     const dataStr = JSON.stringify(exportData, null, 2);
     const dataBlob = new Blob([dataStr], { type: 'application/json' });
     const url = URL.createObjectURL(dataBlob);
-    
+
     const link = document.createElement('a');
     link.href = url;
     link.download = `java-dsa-progress-${new Date().toISOString().split('T')[0]}.json`;
@@ -2461,7 +2935,7 @@ function exportProgress() {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
-    
+
     showToast('Progress exported successfully!', 'success');
 }
 
@@ -2469,12 +2943,12 @@ function exportProgress() {
 function importProgress(event) {
     const file = event.target.files[0];
     if (!file) return;
-    
+
     const reader = new FileReader();
     reader.onload = (e) => {
         try {
             const importData = JSON.parse(e.target.result);
-            
+
             if (importData.version && importData.progress) {
                 // Restore progress
                 appState.completedModules = new Set(importData.progress.completedModules);
@@ -2483,14 +2957,14 @@ function importProgress(event) {
                 appState.moduleModes = new Map(importData.progress.moduleSettings.modes);
                 appState.darkMode = importData.progress.preferences.darkMode;
                 appState.showComments = importData.progress.preferences.showComments;
-                
+
                 // Update UI
                 updateDarkMode();
                 updateCommentsToggle();
                 updateProgress();
                 renderModules();
                 saveToLocalStorage();
-                
+
                 showToast('Progress imported successfully!', 'success');
             } else {
                 throw new Error('Invalid file format');
@@ -2500,19 +2974,19 @@ function importProgress(event) {
             showToast('Failed to import progress. Invalid file format.', 'error');
         }
     };
-    
+
     reader.readAsText(file);
 }
 
 // Print study guide
 function printStudyGuide() {
     const completedModules = modules.filter(m => appState.completedModules.has(m.id));
-    
+
     if (completedModules.length === 0) {
         showToast('Complete some modules first to generate a study guide!', 'warning');
         return;
     }
-    
+
     const printWindow = window.open('', '_blank');
     printWindow.document.write(`
         <!DOCTYPE html>
@@ -2556,7 +3030,7 @@ function printStudyGuide() {
         </body>
         </html>
     `);
-    
+
     printWindow.document.close();
     printWindow.print();
 }
@@ -2583,9 +3057,9 @@ function announceToScreenReader(message) {
     announcement.setAttribute('aria-atomic', 'true');
     announcement.className = 'sr-only';
     announcement.textContent = message;
-    
+
     document.body.appendChild(announcement);
-    
+
     setTimeout(() => {
         document.body.removeChild(announcement);
     }, 1000);
@@ -2641,17 +3115,17 @@ function registerServiceWorker() {
 function trackUsage(action, category = 'General') {
     const usage = JSON.parse(localStorage.getItem('dsaHubUsage') || '{}');
     const today = new Date().toISOString().split('T')[0];
-    
+
     if (!usage[today]) {
         usage[today] = {};
     }
-    
+
     if (!usage[today][category]) {
         usage[today][category] = {};
     }
-    
+
     usage[today][category][action] = (usage[today][category][action] || 0) + 1;
-    
+
     localStorage.setItem('dsaHubUsage', JSON.stringify(usage));
 }
 
@@ -2659,26 +3133,26 @@ function trackUsage(action, category = 'General') {
 function getRecommendedModules() {
     const completed = Array.from(appState.completedModules);
     const incomplete = modules.filter(m => !completed.includes(m.id));
-    
+
     if (completed.length === 0) {
         // Recommend beginner modules
         return incomplete.filter(m => m.difficulty === 'beginner').slice(0, 3);
     }
-    
+
     // Simple recommendation based on completed modules
-    const completedDifficulties = completed.map(id => 
+    const completedDifficulties = completed.map(id =>
         modules.find(m => m.id === id)?.difficulty
     ).filter(Boolean);
-    
+
     const mostCommonDifficulty = completedDifficulties
         .reduce((acc, diff) => {
             acc[diff] = (acc[diff] || 0) + 1;
             return acc;
         }, {});
-    
+
     const recommended = Object.keys(mostCommonDifficulty)
         .sort((a, b) => mostCommonDifficulty[b] - mostCommonDifficulty[a])[0];
-    
+
     return incomplete.filter(m => m.difficulty === recommended).slice(0, 3);
 }
 
@@ -2700,7 +3174,7 @@ function endStudySession() {
         const sessionTime = Date.now() - studyTimer.startTime;
         studyTimer.totalTime += sessionTime;
         studyTimer.isActive = false;
-        
+
         const minutes = Math.round(sessionTime / 60000);
         showToast(`Study session completed: ${minutes} minutes`, 'success');
         trackUsage('study_session_completed', 'Learning');
@@ -2716,18 +3190,18 @@ function getQuizStats() {
 function saveQuizResult(moduleId, score, totalQuestions) {
     const stats = getQuizStats();
     const today = new Date().toISOString().split('T')[0];
-    
+
     if (!stats[moduleId]) {
         stats[moduleId] = [];
     }
-    
+
     stats[moduleId].push({
         date: today,
         score,
         totalQuestions,
         percentage: Math.round((score / totalQuestions) * 100)
     });
-    
+
     localStorage.setItem('dsaHubQuizStats', JSON.stringify(stats));
     trackUsage('quiz_completed', 'Assessment');
 }
@@ -2736,7 +3210,7 @@ function saveQuizResult(moduleId, score, totalQuestions) {
 function generateLearningPath() {
     const completed = Array.from(appState.completedModules);
     const recommended = getRecommendedModules();
-    
+
     const path = {
         next: recommended[0],
         upcoming: recommended.slice(1),
@@ -2744,7 +3218,7 @@ function generateLearningPath() {
         total: modules.length,
         progress: Math.round((completed.length / modules.length) * 100)
     };
-    
+
     return path;
 }
 
