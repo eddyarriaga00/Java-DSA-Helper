@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java DSA Learning Hub - Master Data Structures & Algorithms</title>
+    <meta name="description" content="Complete Java Data Structures & Algorithms learning platform with interactive examples, quizzes, and flashcards">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen transition-all duration-300 bg-slate-50 text-slate-900" id="main-body">
+    <!-- Header - Optimized Height -->
+    <header id="main-header" class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white sticky top-0 z-50 shadow-xl transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6" style="padding-top: 12px; padding-bottom: 12px;">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3">
+                <div class="w-full sm:w-auto transition-all duration-300">
+                    <h1 id="main-title" class="font-bold leading-tight transition-all duration-300 text-xl sm:text-2xl lg:text-3xl">
+                        ☕ Java DSA Learning Hub EAB
+                    </h1>
+                    <p id="main-subtitle" class="text-blue-100 text-xs sm:text-sm lg:text-base mt-0.5 transition-all duration-300">
+                        Master Data Structures & Algorithms with Interactive Learning
+                    </p>
+                </div>
+                <div id="header-buttons" class="flex flex-wrap gap-1.5 sm:gap-2 w-full sm:w-auto justify-start sm:justify-end transition-all duration-300">
+                    <button id="flashcards-btn" class="bg-purple-500 hover:bg-purple-400 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md sm:rounded-lg transition-all duration-200 flex items-center gap-1 sm:gap-1.5 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-xs sm:text-sm">
+                        🎯 <span class="hidden xs:inline">Flashcards</span><span class="xs:hidden">Cards</span>
+                    </button>
+                    <button id="glossary-btn" class="bg-emerald-500 hover:bg-emerald-400 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md sm:rounded-lg transition-all duration-200 flex items-center gap-1 sm:gap-1.5 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-xs sm:text-sm">
+                        📚 <span class="hidden xs:inline">Glossary</span><span class="xs:hidden">Terms</span>
+                    </button>
+                    <button id="settings-btn" class="bg-indigo-500 hover:bg-indigo-400 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md sm:rounded-lg transition-all duration-200 flex items-center gap-1 sm:gap-1.5 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-xs sm:text-sm">
+                        ⚙️ <span class="hidden sm:inline">Settings</span>
+                    </button>
+                    <button id="reset-btn" class="bg-rose-500 hover:bg-rose-400 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-md sm:rounded-lg transition-all duration-200 flex items-center gap-1 sm:gap-1.5 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-xs sm:text-sm">
+                        🔄 <span class="hidden sm:inline">Reset</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <!-- Intro - Optimized Spacing -->
+        <div class="text-center mb-8 sm:mb-10">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4 sm:mb-6">
+                Master Java DSA Step by Step
+            </h2>
+            <p class="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                A comprehensive, beginner-friendly journey through Data Structures and Algorithms in Java created by Eddy Arriaga-B.
+                Each module includes detailed explanations, extensive code examples, and practical exercises.
+            </p>
+        </div>
+
+        <!-- Progress Overview - Tighter Spacing -->
+        <div id="progress-section" class="bg-white border-slate-200 rounded-xl p-4 sm:p-6 mb-5 sm:mb-6 shadow-xl border">
+            <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-indigo-600">📊 Your Learning Progress</h3>
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                <div class="text-sm sm:text-base">
+                    <span id="progress-text" class="text-slate-900 font-medium">
+                        0 of 20 modules completed
+                    </span>
+                    <div class="w-full sm:w-64 h-2 bg-slate-200 rounded-full mt-2 overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div id="progress-percentage" class="text-xl sm:text-2xl font-bold text-indigo-600">0%</div>
+            </div>
+        </div>
+
+        <!-- Support Section - Reduced Padding -->
+        <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 rounded-xl p-4 sm:p-6 mb-5 sm:mb-6 text-white text-center shadow-xl">
+            <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">❤️ Do you enjoy this website?</h3>
+            <p class="mb-3 sm:mb-4 opacity-90 text-sm sm:text-base">Help keep this resource free and updated with new content weekly!</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3">
+                <a href="https://www.paypal.com/donate?business=your.email@paypal.com&amount=5.00&currency_code=USD&item_name=Java%20DSA%20Learning%20Hub%20-%20Coffee%20Support" target="_blank" rel="noopener noreferrer" class="bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-xs sm:text-sm">
+                    ☕ Buy me a coffee ($5)
+                </a>
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-xs sm:text-sm">
+                    ⭐ GitHub Star
+                </a>
+                <a href="https://www.paypal.com/donate?business=your.email@paypal.com&amount=25.00&currency_code=USD&item_name=Java%20DSA%20Learning%20Hub%20-%20Sponsor%20Support" target="_blank" rel="noopener noreferrer" class="bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-xs sm:text-sm">
+                    💝 Sponsor Me! ($25)
+                </a>
+            </div>
+            <p class="text-xs mt-2 sm:mt-3 opacity-75">Created with ❤️ for CS students by Eddy Arriaga-Barrientos</p>
+        </div>
+
+        <!-- Search and Filter - Tighter Spacing -->
+        <div id="search-section" class="bg-white border-slate-200 rounded-xl p-4 sm:p-5 mb-5 sm:mb-6 shadow-xl border">
+            <h3 class="text-lg sm:text-xl font-semibold mb-3 text-indigo-600">Find Your Learning Path</h3>
+            <div class="flex flex-col gap-3">
+                <div class="w-full">
+                    <input type="text" id="search-input" placeholder="Search modules by title, description, or topics..." class="w-full px-3 py-2 sm:py-2.5 rounded-lg border transition-all duration-200 text-sm sm:text-base bg-white border-slate-300 text-slate-900 placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20">
+                </div>
+                <div class="w-full sm:w-auto">
+                    <select id="difficulty-filter" class="w-full sm:w-48 px-3 py-2 sm:py-2.5 rounded-lg border transition-all duration-200 text-sm sm:text-base bg-white border-slate-300 text-slate-900 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20">
+                        <option value="all">All Levels</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+            </div>
+            <div id="search-results-count" class="mt-2 sm:mt-3 text-xs sm:text-sm text-slate-600" style="display: none;"></div>
+        </div>
+
+        <!-- Modules Grid - Optimized Spacing -->
+        <div id="modules-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
+            <!-- Modules will be populated by JavaScript -->
+        </div>
+
+        <!-- Footer - Reduced Padding -->
+        <footer id="main-footer" class="bg-white border-slate-200 rounded-xl p-4 sm:p-6 mt-6 sm:mt-8 shadow-xl border">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                <div>
+                    <h4 class="font-semibold text-indigo-600 mb-2 sm:mb-3 text-base">📖 Study Tools</h4>
+                    <div class="space-y-1 sm:space-y-2">
+                        <button class="footer-link block text-left hover:text-indigo-600 transition-colors duration-200 text-sm" onclick="openFlashcards()">
+                            🎯 Practice Flashcards
+                        </button>
+                        <button class="footer-link block text-left hover:text-indigo-600 transition-colors duration-200 text-sm" onclick="openGlossary()">
+                            📚 DSA Glossary
+                        </button>
+                        <div class="text-slate-600 text-sm">🧠 Interactive Quizzes</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-indigo-600 mb-2 sm:mb-3 text-base">🚀 Features</h4>
+                    <div class="space-y-1 sm:space-y-2 text-slate-600 text-sm">
+                        <div>💬 Individual Comment Controls</div>
+                        <div>📝 Pseudocode Conversion</div>
+                        <div>🛠️ Multi-Language Support</div>
+                        <div>📱 Mobile-Optimized Design</div>
+                        <div>🌙 Dark Mode Support</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-indigo-600 mb-2 sm:mb-3 text-base">💖 Support Creator</h4>
+                    <div class="space-y-1 sm:space-y-2">
+                        <div class="text-slate-600 text-sm">Made with ❤️ for CS students</div>
+                        <div class="text-slate-600 text-sm">Help keep this resource free!</div>
+                        <div class="flex gap-2 mt-2 sm:mt-3">
+                            <a href="https://www.paypal.com/donate?business=your.email@paypal.com&amount=5.00&currency_code=USD&item_name=Coffee%20Support" target="_blank" rel="noopener noreferrer" class="bg-amber-500 hover:bg-amber-600 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs transition-colors duration-200 shadow-md hover:shadow-lg">
+                                ☕ Coffee
+                            </a>
+                            <a href="https://www.paypal.com/donate?business=your.email@paypal.com&amount=25.00&currency_code=USD&item_name=Sponsor%20Support" target="_blank" rel="noopener noreferrer" class="bg-purple-500 hover:bg-purple-600 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs transition-colors duration-200 shadow-md hover:shadow-lg">
+                                💝 Sponsor
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-200 mt-4 sm:mt-6 pt-3 sm:pt-4 text-center text-slate-500">
+                <p class="text-sm">Created with ❤️ for CS students by Eddy Arriaga-B</p>
+                <p class="text-xs mt-1">Java DSA Learning Hub © 2024 | Open Source ❤️</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" style="display: none;">
+        <div class="rounded-2xl w-full max-w-md shadow-2xl bg-white text-slate-900 border border-slate-200">
+            <div class="flex justify-between items-center p-6 border-b border-slate-200">
+                <h3 class="text-2xl font-semibold text-indigo-600">Settings</h3>
+                <button id="close-settings" class="text-2xl transition-colors duration-200 text-slate-500 hover:text-slate-700">×</button>
+            </div>
+            <div class="p-6 space-y-6">
+                <div class="flex justify-between items-center">
+                    <label class="font-medium text-slate-800">Dark Mode</label>
+                    <button id="dark-mode-toggle" class="w-14 h-7 rounded-full transition-colors duration-200 bg-slate-300">
+                        <div id="dark-mode-slider" class="w-6 h-6 bg-white rounded-full transition-transform duration-200 translate-x-0.5"></div>
+                    </button>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <label class="font-medium text-slate-800">Show Code Comments (Default)</label>
+                        <p class="text-xs mt-1 text-slate-600">Each module can override this setting</p>
+                    </div>
+                    <button id="comments-toggle" class="w-14 h-7 rounded-full transition-colors duration-200 bg-indigo-600">
+                        <div id="comments-slider" class="w-6 h-6 bg-white rounded-full transition-transform duration-200 translate-x-7"></div>
+                    </button>
+                </div>
+            </div>
+            <div class="p-6 border-t border-slate-200">
+                <button id="save-settings" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-3 rounded-xl font-medium">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Glossary Modal -->
+    <div id="glossary-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" style="display: none;">
+        <div class="rounded-2xl w-full max-w-5xl shadow-2xl flex flex-col bg-white text-slate-900 border border-slate-200" style="max-height: 90vh;">
+            <div class="flex justify-between items-center p-6 border-b border-slate-200">
+                <h3 class="text-3xl font-semibold text-indigo-600">📚 Java DSA Glossary</h3>
+                <button id="close-glossary" class="text-2xl transition-colors duration-200 hover:scale-110 text-slate-500 hover:text-slate-700">×</button>
+            </div>
+            <div class="p-6 pb-4">
+                <input type="text" id="glossary-search" placeholder="Search glossary terms..." class="w-full px-4 py-3 rounded-xl border transition-all duration-200 bg-white border-slate-300 text-slate-900 placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20">
+            </div>
+            <div class="flex-1 overflow-y-auto px-6 pb-6">
+                <div id="glossary-content" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Glossary items will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flashcards Modal -->
+    <div id="flashcards-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" style="display: none;">
+        <div class="rounded-2xl w-full max-w-4xl shadow-2xl bg-white text-slate-900 border border-slate-200">
+            <div class="flex justify-between items-center p-6 border-b border-slate-200">
+                <h3 class="text-3xl font-semibold text-indigo-600">🎯 DSA Flashcards</h3>
+                <button id="close-flashcards" class="text-2xl transition-colors duration-200 hover:scale-110 text-slate-500 hover:text-slate-700">×</button>
+            </div>
+            <div class="p-8">
+                <div class="text-center mb-6">
+                    <span id="flashcard-counter" class="text-sm px-3 py-1 rounded-full bg-slate-100 text-slate-500">Card 1 of 8</span>
+                </div>
+                <div id="flashcard-content" class="rounded-2xl p-8 min-h-80 flex flex-col justify-center cursor-pointer transition-all duration-300 hover:shadow-lg border bg-slate-50 border-slate-200 hover:border-slate-300">
+                    <!-- Flashcard content will be populated by JavaScript -->
+                </div>
+                <div class="flex justify-between items-center mt-8">
+                    <button id="prev-flashcard" class="bg-slate-500 hover:bg-slate-600 text-white px-6 py-3 rounded-xl transition-all duration-200 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5">← Previous</button>
+                    <div class="flex gap-3">
+                        <button id="toggle-flashcard-answer" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-xl transition-all duration-200 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5">Show Answer</button>
+                    </div>
+                    <button id="next-flashcard" class="bg-slate-500 hover:bg-slate-600 text-white px-6 py-3 rounded-xl transition-all duration-200 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5">Next →</button>
+                </div>
+                <div class="mt-6 text-center">
+                    <button id="random-flashcard" class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl transition-all duration-200 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5">🔀 Random Card</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div id="quiz-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" style="display: none;">
+        <div class="rounded-2xl w-full max-w-4xl shadow-2xl bg-white text-slate-900 border border-slate-200 max-h-90vh overflow-y-auto">
+            <div class="flex justify-between items-center p-6 border-b border-slate-200">
+                <h3 id="quiz-title" class="text-2xl font-semibold text-indigo-600">🧠 Quiz</h3>
+                <button id="close-quiz" class="text-2xl transition-colors duration-200 hover:scale-110 text-slate-500 hover:text-slate-700">×</button>
+            </div>
+            <div id="quiz-content" class="p-8">
+                <!-- Quiz content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
