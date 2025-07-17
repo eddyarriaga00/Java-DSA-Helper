@@ -1,7 +1,7 @@
 # ☕ Java DSA Learning Hub
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://eddyarriaga00.github.io/Java-DSA-Helper/)
-[![GitHub Stars](https://img.shields.io/github/stars/your-username/java-dsa-learning-hub?style=for-the-badge)](https://github.com/your-username/java-dsa-learning-hub/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/your-username/java-dsa-learning-hub?style=for-the-badge)](https://github.com/eddyarriaga00/Java-DSA-Helper/stargazers)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 > **Master Data Structures & Algorithms with Interactive Learning**
