@@ -164,8 +164,8 @@ If you find this project helpful, please consider:
 
 - ⭐ **Star this repository**
 - 🐛 **Report issues** you encounter
-- ☕ **Buy me a coffee** - [PayPal Donation](https://paypal.me/yourpaypal)
-- 💖 **Sponsor development** - [GitHub Sponsors](https://github.com/sponsors/your-username)
+- ☕ **Buy me a coffee** - [PayPal Donation](https://www.paypal.com/paypalme/delamainn)
+- 💖 **Sponsor development** - [GitHub Sponsors](https://github.com/sponsors/eddyarriaga00/)
 
 ## 📄 License
 
@@ -174,9 +174,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Creator**: Eddy Arriaga-Barrientos
-- **GitHub**: [@your-username](https://github.com/eddyarriaga00/)
+- **GitHub**: [eddyarriaga00](https://github.com/eddyarriaga00/)
 - **Email**: eddyarriaga123@gmail.com
-- **LinkedIn**: [Your LinkedIn](https://linkedin.com/in/eddy-arriaga/)
+- **LinkedIn**: [Eddy Arriaga](https://linkedin.com/in/eddy-arriaga/)
 
 ---
 
